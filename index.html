@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>My First Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("div").load("https://developer.github.com/v3/");
+            });
+        });
+    </script>
 </head>
 <body>
 
-<h1>Título de mi página web</h1>
-<p>Escribir lo que me salga de las cojones</p>
-<tagname>esto que es?</tagname>
-
-<h2>Vamos </h2>
-<h3>a</h3>
-<h6>probar cosas nuevas </h6>
-<img src="Foto Carnet.jpeg" width="104" height="142">
-<br>
-<a href="https://github.com/vcarlos97/PaginaWEB.git">Mi Github</a>
-<br>
-<button>Pincha aqui</button>
-
-<h1>Vamos a hacer una lista numerada cgandome en el requena</h1>
-<ul>
-    <li>Llega tarde</li>
-    <li>No hace una mierda</li>
-    <li>Encima es gilipollas</li>
-</ul>
-<h2>Ahora veamos las ventajas</h2>
-
-<ol>
-    <li>Me va a hacer millonario</li>
-    <li>Trae los viruses</li>
-    <li>Proporciona jajas y conocimiento</li>
-    <li>Más guapo que el gafotas de los micros</li>
-</ol>
-
+<div class="container-fluid">
+    <h1>Título de mi página web</h1>
+    <p>Escribir lo que me salga de las cojones</p>
+    <tagname>esto que es?</tagname>
+    <br>
+    <img src="Foto Carnet.jpeg" width="104" height="142">
+    <br>
+    <a href="https://github.com/vcarlos97/PaginaWEB.git">Mi Github</a>
+    <br>
+    <button>Pincha aqui</button>
+</div>
 </body>
 </html>
