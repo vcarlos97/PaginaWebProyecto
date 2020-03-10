@@ -68,6 +68,8 @@
                             <th>Numero de seguidores</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        </tbody>
                     </table>
 
                 </div>
@@ -77,13 +79,28 @@
     </div>
 </div>
 
-
-
-
 <footer class="container-fluid text-center">
     <p style="color:black";>By: Carlos Vázquez Crespo</p>
 </footer>
-
-
+    <script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("#repositorios tbody tr").remove();
+            console.log($("#usuario").val());
+            $.get("https://api.github.com/users/" + $("#usuario").val() + "/repos", function(data){
+            console.log(data);
+                $.each(data, function(index,element){
+                    var id = element.id;
+                    var name = element.name;
+                    var description = element.description;
+                    var followers = element.stargazers_count;
+                    var insertion = "<tr><td>" + id + "</td><td>" + name + "</td><td>" + description + "</td><td>" + followers +"</td></tr>";
+                    $("#repositorios tbody").append(insertion);
+                });
+            }, "json" );
+            $("#usuario").val();
+        });
+    });
+    </script>
 </body>
 </html>
