@@ -3,104 +3,40 @@
 <head>
     <title>My First Page</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-        .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    .row.content {height: 450px}
-
-    .sidenav {
-      padding-top: 20px;
-      background-color: #0;
-      height: 100%;
-    }
-
-    footer {
-      background-color: #0;
-      color: white;
-      padding: 15px;
-    }
-
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;}
-    }
-  </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title> UI Login </title>
 </head>
 <body>
-<nav class="navbar navbar-inverse text-center">
-    <h1 style="color:white; font-size:300%">Mi Página Web</h1>
-</nav>
-<div class="container-fluid text-center">
-    <div class="row content">
-        <div class="col-sm-1 sidenav">
-            <img src="logoPropi.png" width="100" height="102">
+    <div class="container">
+        <div class="login-container">
+            <div class="register">
+                <h2>Registrarse</h2>
+                <form action="">
+                    <input type="text" placeholder="Nombre" class="nombre">
+                    <input type="text" placeholder="Correo" class="correo">
+                    <input type="password" placeholder="Contraseña" class="pass">
+                    <input type="password" placeholder="Confirmar contraseña" class="repass">
+                    <input type="submit" class="submit" value="REGISTRARSE">
+                </form>
+            </div>
+            <div class="login">
+                <h2>Iniciar Sesion </h2>
+                <div class="login-items">
+                    <input type="text" placeholder="Nombre" class="nombre">
+                    <input type="password" placeholder="Contraseña" class="pass">
+                    <button class="fb"><i class="fab fa-facebook-f"></i>
+                        Acceder con facebook</button>
+                    <button class="correo"><i class="fas fa-envelope"></i>
+                        Acceder con correo</button>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-11 text-left">
-            <h1>Empecemos</h1>
-            <p>Introduce repositorio github que quieres</p>
-            <div class="form-group">
-                <label class="control-label col-sm-5" for="usuario">Repositorio:</label>
-                <div class="col-sm-1">
-                <input type="usuario" class="form-control" id="usuario" placeholder="Buscar">
-                    <button type="button" class="btn btn-primary">Buscar</button>
-                </div>
-        <br>
-                <br>
-                <br>
-                <div class="container">
-
-                    <h3 class="text-left">Datos encontrados</h3>
-                    <table class="table table-bordered" id="repositorios">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Numero de seguidores</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-
-                </div>
-
-         </div>
-
     </div>
-</div>
-
-<footer class="container-fluid text-center">
-    <p style="color:black";>By: Carlos Vázquez Crespo</p>
-</footer>
-    <script>
-    $(document).ready(function(){
-        $("button").click(function(){
-            $("#repositorios tbody tr").remove();
-            console.log($("#usuario").val());
-            $.get("https://api.github.com/users/" + $("#usuario").val() + "/repos", function(data){
-            console.log(data);
-                $.each(data, function(index,element){
-                    var id = element.id;
-                    var name = element.name;
-                    var description = element.description;
-                    var followers = element.stargazers_count;
-                    var insertion = "<tr><td>" + id + "</td><td>" + name + "</td><td>" + description + "</td><td>" + followers +"</td></tr>";
-                    $("#repositorios tbody").append(insertion);
-                });
-            }, "json" );
-            $("#usuario").val();
-        });
-    });
-    </script>
 </body>
 </html>
